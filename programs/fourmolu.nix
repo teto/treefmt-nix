@@ -22,7 +22,7 @@ in
   config = lib.mkIf cfg.enable {
     settings.formatter.fourmolu = {
       command = cfg.package;
-      options = [ "-i" "-c" ]
+      options = [ "-i" ]
         ++ (lib.concatMap (x: [ "--ghc-opt" "-X${x}" ]) cfg.ghcOpts);
       includes = [ "*.hs" ];
     };
